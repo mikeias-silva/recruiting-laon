@@ -21,13 +21,22 @@ class CatalogoController extends Controller
 
     public function store(Request $request)
     {
-        return $request->all();
-        dd($request->all());
-        Catalogo::create([
-            'titulo'=> 'Vingadores',
-            'titulo_original'=>'avengers',
-            'lancamento'=> '2019-09-02'
-        ]);
+        $dataCatalogo = $request->all();
+        $newCatalogo = new Catalogo();
+
+        $response = $newCatalogo->saveCatalogo($dataCatalogo);
+
+        if ($response['status'] == 201) {
+            return response()->json([
+                'message' => $response['message'],
+            ], $response['status']);
+        }
+
+        if ($response['status'] == 400) {
+            return response()->json([
+                'error' => $response['message'],
+            ], $response['status']);
+        }
     }
 
     public function show(Catalogo $catalogo)
