@@ -9,14 +9,10 @@ class CatalogoController extends Controller
 {
     public function index()
     {
-        //
-        $catalogo = Catalogo::all();
-        return $catalogo;
-    }
+        $filmes = new Catalogo();
+        $filmes = $filmes->getFilmes();
 
-    public function create()
-    {
-        //
+        return response()->json($filmes, 200);
     }
 
     public function store(Request $request)
@@ -25,38 +21,44 @@ class CatalogoController extends Controller
         $newCatalogo = new Catalogo();
 
         $response = $newCatalogo->saveCatalogo($dataCatalogo);
-
-        if ($response['status'] == 201) {
-            return response()->json([
-                'message' => $response['message'],
-            ], $response['status']);
-        }
-
-        if ($response['status'] == 400) {
-            return response()->json([
-                'error' => $response['message'],
-            ], $response['status']);
-        }
+        return $this->responseAction($response);
     }
 
     public function show(Catalogo $catalogo)
     {
-        //
-    }
+        $catalogo = $catalogo->showDetails($catalogo);
 
-
-    public function edit(Catalogo $catalogo)
-    {
-        //
+        return response()->json($catalogo, 200);
     }
 
     public function update(Request $request, Catalogo $catalogo)
     {
-        //
+        $editCatalogo = new Catalogo();
+        $response = $editCatalogo->editCatalogo($catalogo, $request);
+
+        return $this->responseAction($response);
     }
 
     public function destroy(Catalogo $catalogo)
     {
-        //
+        $response = $catalogo->deleteCatalogo($catalogo);
+        return $this->responseAction($response);
+    }
+
+    public function responseAction($response)
+    {
+        if ($response['success']) {
+            return response()->json([
+                'message' => $response['success'],
+            ], 200);
+        }
+
+        if ($response['error']) {
+            return response()->json([
+                'error' => $response['error'],
+            ], 400);
+        }
     }
 }
+
+;
