@@ -11,10 +11,13 @@ class CatalogoController extends Controller
 {
     public function index()
     {
-        $filmes = new Catalogo();
-        $filmes = $filmes->getFilmes();
-
-        return response()->json($filmes, 200);
+        $catalogo = new Catalogo();
+        $filmes = $catalogo->getFilmes();
+        $series = $catalogo->getSeries();
+        return response()->json([
+            'filmes' => $filmes,
+            'series' => $series
+        ], 200);
     }
 
     public function store(StoreCatalogoRequest $request)
