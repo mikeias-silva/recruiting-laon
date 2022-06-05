@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCatalogoRequest;
+use App\Http\Requests\UpdateCatalogoRequest;
 use App\Models\Catalogo;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,7 @@ class CatalogoController extends Controller
         return response()->json($filmes, 200);
     }
 
-    public function store(Request $request)
+    public function store(StoreCatalogoRequest $request)
     {
         $dataCatalogo = $request->all();
         $newCatalogo = new Catalogo();
@@ -31,11 +33,10 @@ class CatalogoController extends Controller
         return response()->json($catalogo, 200);
     }
 
-    public function update(Request $request, Catalogo $catalogo)
+    public function update(UpdateCatalogoRequest $request, Catalogo $catalogo)
     {
         $editCatalogo = new Catalogo();
         $response = $editCatalogo->editCatalogo($catalogo, $request);
-
         return $this->responseAction($response);
     }
 
