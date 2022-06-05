@@ -1,3 +1,5 @@
 /vendor/
 recruiting-laon-backend/vendor/autoload.php
 **/vendor/**
+**.idea**
+**/node_modules/**

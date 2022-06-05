@@ -27,3 +27,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/catalogo', CatalogoController::class);
 });
+
+Route::get('/oi', function(){
+    return "oi";
+});
