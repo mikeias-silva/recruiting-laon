@@ -119,6 +119,10 @@
       <excludeFolder url="file://$MODULE_DIR$/recruiting-laon-backend/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/recruiting-laon-backend/vendor/facade/ignition-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/recruiting-laon-backend/vendor/facade/flare-client-php" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/recruiting-laon-backend/storage/framework/cache/data/c0" />
+      <excludeFolder url="file://$MODULE_DIR$/recruiting-laon-backend/storage/framework/cache/data/ec" />
+      <excludeFolder url="file://$MODULE_DIR$/recruiting-laon-backend/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

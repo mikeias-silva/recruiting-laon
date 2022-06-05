@@ -20,27 +20,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/filmes', function () {
-
-//    dd($filmes);
-    $json = Storage::disk('local')->get('/public/filmes.json');
-    $filmes = json_decode($json, true);
-    try {
-
-        foreach ($filmes['catalogo'] as $item) {
-
-            $item['categoria_id'] = $item['categoria']['id'];
-            $newCatalogo = Catalogo::create($item);
-            dd($newCatalogo);
-            foreach ($item['generos'] as $genero) {
-                $newGenero = Genero::find($genero['id']);
-                $newGenero->generosCatalogo()->attach($newCatalogo->id);
-            }
-        }
-    } catch (\Exception $exception) {
-        dd($exception);
-    }
-    dd("finalizado");
-});
 
 

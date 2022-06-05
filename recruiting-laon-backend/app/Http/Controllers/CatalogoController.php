@@ -7,77 +7,45 @@ use Illuminate\Http\Request;
 
 class CatalogoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
+        $catalogo = Catalogo::all();
+        return $catalogo;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        return $request->all();
+        dd($request->all());
+        Catalogo::create([
+            'titulo'=> 'Vingadores',
+            'titulo_original'=>'avengers',
+            'lancamento'=> '2019-09-02'
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Catalogo  $catalogo
-     * @return \Illuminate\Http\Response
-     */
     public function show(Catalogo $catalogo)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Catalogo  $catalogo
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Catalogo $catalogo)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Catalogo  $catalogo
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Catalogo $catalogo)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Catalogo  $catalogo
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Catalogo $catalogo)
     {
         //
