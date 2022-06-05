@@ -1,0 +1,73 @@
+html * {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-container {
+    justify-content: center;
+    align-items: center;
+    background: #282639;
+    border-radius: 8px;
+    height: 535px;
+    width: 588px;
+    text-align: start;
+    padding: 20px;
+    margin: 20px;
+    flex-direction: column;
+    display: flex;
+}
+
+#email {
+    border: 1px solid #48465B;
+    border-radius: 4px;
+    height: 72px;
+    width: 384px;
+    border-radius: 4px;
+    margin: 10px;
+    background-color: #282639;
+    padding: 24px;
+    margin-top: 48px;
+}
+
+#password {
+    border: 1px solid #48465B;
+    border-radius: 4px;
+    height: 72px;
+    width: 384px;
+    border-radius: 4px;
+    margin: 10px;
+    margin-top: 24px;
+    background-color: #282639;
+    padding: 24px;
+}
+
+#btn-entrar {
+    background: #FFFFFF;
+    border-radius: 4px;
+    height: 72px;
+    width: 384px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    color: #1F1D2F;
+    margin: 10px;
+    margin-top: 32px;
+
+}
+
+#teste {
+    width: 375px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
