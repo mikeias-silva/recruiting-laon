@@ -37,3 +37,7 @@ Caso esteja rodando em localhost
 ###  `php artisan serve`
 
 Irá iniciar um servidor desta aplicação que por padrão será na porta :8000
+
+
+## Documentação da API
+https://documenter.getpostman.com/view/2596673/Uz5JGagJ
