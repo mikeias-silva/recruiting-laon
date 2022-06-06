@@ -41,6 +41,14 @@ const Home = () => {
         }
       </div>
 
+      <h3 className='mt-20 red-text'>Séries</h3>
+      {
+        series.map(serie => (
+          <div key={serie.id}>
+            <h1> {serie.titulo}</h1>
+          </div>
+        ))
+      }
       <Rodape />
     </div >
   )
