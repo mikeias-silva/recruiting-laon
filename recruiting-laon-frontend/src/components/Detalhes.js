@@ -6,7 +6,7 @@ import Rodape from './Rodape';
 const Detalhes = () => {
   const { filmeId } = useParams();
   const [filme, setFilme] = useState([]);
-  console.log(filmeId);
+
   useEffect(() => {
     const getFilme = () => {
       const headers = {
