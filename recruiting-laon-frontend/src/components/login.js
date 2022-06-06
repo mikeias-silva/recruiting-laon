@@ -1,38 +1,35 @@
 import React, { useState } from 'react';
-import Axios from 'axios';
 import axios from 'axios';
 
-const Login = () => {
-    const [email, setEmail] = useState([])
-    const [password, setPassword] = useState([])
-    const [token, setToken] = useState([])
-
+const Login = ({ isAuthenticated, setIsAuthenticated }) => {
+    // axiosInstance.defaults.timeout = 10000;
+    // axios.ax
+    const [email, setEmail] = useState([]);
+    const [password, setPassword] = useState([]);
+   
     const handleLogin = () => {
-
-
         const headers = {
-            'Content-Type': 'application/json',
-            'Accept': '*/*'
-        };
+            'Accept': '/',
+            "Content-Type": "application/json",
 
+        };
         const body = {
             email: email,
             password: password
         };
 
-        axios.post('http://127.0.0.1:8000/api/login',
-            body, { headers })
+        axios.post('http://localhost:8000/api/login', body, { headers })
             .then(response => {
-                console.log(response.data);
                 localStorage.setItem("token", response.data.token);
+                setIsAuthenticated(true);
 
-            }).catch(error => {
+            })
+            .catch(error => {
+                alert(error);
                 console.error(error);
             })
-
-        console.log(email);
-        console.log(password);
     }
+
 
     return (
         <div className='container'>
@@ -59,7 +56,6 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <button type='submit' onClick={handleLogin} id="btn-entrar">Entrar</button>
-
                 </div>
             </div>
         </div>

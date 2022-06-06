@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Models\Catalogo;
 use App\Models\Genero;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,5 @@ use Illuminate\Support\Facades\Storage;
 Route::get('/', function () {
     return view('welcome');
 });
-
 
 
